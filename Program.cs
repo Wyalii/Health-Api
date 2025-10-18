@@ -14,6 +14,7 @@ string allowedOrigin = Environment.GetEnvironmentVariable("Allowed_Origin");
 string allowedOriginProd = Environment.GetEnvironmentVariable("Allowed_Origin_Prod");
 
 var connectionString = Environment.GetEnvironmentVariable("Database_Connection_String");
+Console.WriteLine(connectionString);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

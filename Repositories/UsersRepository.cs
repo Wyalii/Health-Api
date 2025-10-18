@@ -13,7 +13,7 @@ public class UsersRepository
         _passwordService = passwordService;
     }
 
-    public async Task<User?> CreateUserAsync(string username, string email, string password, string profileImage)
+    public async Task<User?> CreateUserAsync(string username, string email, string password)
     {
         var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         if (existingUser != null)
@@ -28,8 +28,7 @@ public class UsersRepository
             Username = username,
             Email = email,
             Password = hashedPassword,
-            Verified = false,
-            ProfileImage = profileImage
+
         };
 
         await _context.Users.AddAsync(newUser);
@@ -47,7 +46,7 @@ public class UsersRepository
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         if (user == null) return false;
 
-        user.Verified = true;
+
         _context.Users.Update(user);
         await _context.SaveChangesAsync();
         return true;
@@ -79,14 +78,7 @@ public class UsersRepository
             if (!string.IsNullOrWhiteSpace(password))
                 user.Password = _passwordService.HashPassword(password);
 
-            if (!string.IsNullOrWhiteSpace(profileImage))
-                user.ProfileImage = profileImage;
 
-            if (!string.IsNullOrEmpty(passwordResetToken))
-            {
-                user.PasswordResetToken = passwordResetToken;
-                user.PasswordResetTokenCreatedAt = DateTime.UtcNow;
-            }
 
             await _context.SaveChangesAsync();
             return user;
@@ -105,8 +97,7 @@ public class UsersRepository
             return false;
         }
 
-        existingUser.PasswordResetToken = null;
-        existingUser.PasswordResetTokenCreatedAt = null;
+
         await _context.SaveChangesAsync();
         return true;
     }
