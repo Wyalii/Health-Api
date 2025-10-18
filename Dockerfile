@@ -18,5 +18,5 @@ COPY --from=build /app/out .
 # Use the PORT environment variable provided by Render
 ENV ASPNETCORE_URLS=http://+:${PORT:-5000}
 
-# Start the API
-ENTRYPOINT ["dotnet", "Health-Api.dll"]
+# Start the API (correct DLL name)
+ENTRYPOINT ["dotnet", "Bocchify_Server.dll"]
