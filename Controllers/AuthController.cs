@@ -78,35 +78,6 @@ public class AuthController : ControllerBase
         }
     }
 
-    [HttpGet("verify")]
-    public async Task<IActionResult> VerifyAccount([FromQuery] string email)
-    {
-        try
-        {
-            if (string.IsNullOrEmpty(email))
-            {
-                return BadRequest(new { message = "Email is missing." });
-            }
-
-            User user = await _usersRepository.GetUserAsync(email);
-            if (user == null)
-            {
-                return BadRequest(new { message = "User not found." });
-            }
-
-
-
-            await _usersRepository.UpdateUserVerificationStatusAsync(user.Email);
-
-            return Redirect($"{frontendBaseUrl}/verified-success");
-        }
-        catch (Exception ex)
-        {
-
-            return StatusCode(500, $"Internal server error: {ex.Message}");
-        }
-
-    }
 
     [HttpGet("ping")]
     public IActionResult Ping()

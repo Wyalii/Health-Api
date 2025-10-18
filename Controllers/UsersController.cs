@@ -30,7 +30,7 @@ public class UsersController : ControllerBase
             }
 
             int user_id = int.Parse(userIdClaim.Value);
-            User UpdatedUser = await _usersRepository.UpdateUserAsync(user_id, updateUserDto.Username, updateUserDto.Email, updateUserDto.Password, updateUserDto.ProfilePicture);
+            User UpdatedUser = await _usersRepository.UpdateUserAsync(user_id, updateUserDto.Username, updateUserDto.Email, updateUserDto.Password);
             string updatedUserId = UpdatedUser.Id.ToString();
             string newToken = _tokenService.GenerateToken(updatedUserId, UpdatedUser.Email);
 

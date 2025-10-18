@@ -56,9 +56,8 @@ public class UsersRepository
         int userId,
         string? username = null,
         string? email = null,
-        string? password = null,
-        string? profileImage = null,
-        string? passwordResetToken = null
+        string? password = null
+
     )
     {
         try
