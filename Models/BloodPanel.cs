@@ -1,9 +1,13 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 public class BloodPanel
 {
 
     public int Id { get; set; }
+    [ForeignKey("User")]
+    public int UserId { get; set; }
+    public User User { get; set; }
 
     [Range(0, double.MaxValue, ErrorMessage = "WBC must be a positive value.")]
     public double WBC { get; set; }

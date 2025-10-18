@@ -14,7 +14,6 @@ string allowedOrigin = Environment.GetEnvironmentVariable("Allowed_Origin");
 string allowedOriginProd = Environment.GetEnvironmentVariable("Allowed_Origin_Prod");
 
 var connectionString = Environment.GetEnvironmentVariable("Database_Connection_String");
-Console.WriteLine(connectionString);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -53,6 +52,7 @@ builder.Services.AddScoped<PasswordService>();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<UsersRepository>();
 builder.Services.AddScoped<MailService>();
+builder.Services.AddScoped<PanelsRepository>();
 
 builder.Services.AddHttpClient();
 builder.Services.AddControllers();
