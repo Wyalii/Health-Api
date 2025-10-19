@@ -25,7 +25,7 @@ public class GoogleAIService
         var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={_apiKey}";
 
         var promptBuilder = new StringBuilder();
-  promptBuilder.AppendLine("Summarize this patient's lab results briefly, focusing only on provided values. Give key insights and short, clear recommendations. Keep it under 5 sentences and avoid unnecessary detail.\n");
+ promptBuilder.AppendLine("Analyze the patient's lab results and provide a concise summary with key insights. If any values are significantly abnormal, suggest next steps or treatments. Ignore zero or empty values. Keep the response short, under 5 sentences, while retaining the important details.");
 
         promptBuilder.AppendLine("Blood Panel:");
         if (request.WBC != 0) promptBuilder.AppendLine($"- WBC: {request.WBC}");
