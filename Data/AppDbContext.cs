@@ -14,24 +14,26 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<User>()
-            .HasOne(u => u.UserBloodPanel)
-            .WithOne()
-            .HasForeignKey<User>(u => u.UserBloodPanelId)
-            .OnDelete(DeleteBehavior.Cascade);
+                .HasOne(u => u.UserBloodPanel)
+                .WithOne(bp => bp.User)        // Navigation property in BloodPanel
+                .HasForeignKey<BloodPanel>(bp => bp.UserId) // Foreign key in BloodPanel
+                .OnDelete(DeleteBehavior.Cascade);
 
+        // User <-> LipidPanel
         modelBuilder.Entity<User>()
             .HasOne(u => u.UserLipidPanel)
-            .WithOne()
-            .HasForeignKey<User>(u => u.UserLipidPanelId)
+            .WithOne(lp => lp.User)        // Navigation property in LipidPanel
+            .HasForeignKey<LipidPanel>(lp => lp.UserId) // Foreign key in LipidPanel
             .OnDelete(DeleteBehavior.Cascade);
 
-
+        // User <-> MetabolicPanel
         modelBuilder.Entity<User>()
             .HasOne(u => u.MetabolicPanel)
-            .WithOne()
-            .HasForeignKey<User>(u => u.MetabolicPanelId)
+            .WithOne(mp => mp.User)        // Navigation property in MetabolicPanel
+            .HasForeignKey<MetabolicPanel>(mp => mp.UserId) // Foreign key in MetabolicPanel
             .OnDelete(DeleteBehavior.Cascade);
 
+        // UserInfoPanel -> User (many-to-one)
         modelBuilder.Entity<UserInfoPanel>()
             .HasOne(uip => uip.User)
             .WithMany()

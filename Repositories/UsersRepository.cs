@@ -40,6 +40,14 @@ public class UsersRepository
     {
         return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
     }
+    public async Task<User?> GetUserInfoAsync(int id)
+    {
+        return await _context.Users
+        .Include(u => u.UserBloodPanel)
+        .Include(u => u.UserLipidPanel)
+        .Include(u => u.MetabolicPanel)
+        .FirstOrDefaultAsync(u => u.Id == id);
+    }
 
     public async Task<bool> UpdateUserVerificationStatusAsync(string email)
     {

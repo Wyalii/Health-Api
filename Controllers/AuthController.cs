@@ -9,7 +9,7 @@ public class AuthController : ControllerBase
     private readonly MailService _mailService;
     private readonly PasswordService _passwordService;
     private readonly TokenService _tokenService;
-    private readonly string frontendBaseUrl = "https://health-analytics-suite.vercel.app/";
+    private readonly string frontendBaseUrl = "https://health-api-uzuc.onrender.com";
     private readonly string backendBaseUrl = "https://health-api-uzuc.onrender.com";
     public AuthController(UsersRepository usersRepository, MailService mailService, PasswordService passwordService, TokenService tokenService)
     {

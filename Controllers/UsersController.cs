@@ -89,4 +89,61 @@ public class UsersController : ControllerBase
         }
 
     }
+    [HttpGet("GetUserInfo")]
+    public async Task<IActionResult> GetUserInfo()
+    {
+        try
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+            int id = int.Parse(userId);
+            var userInfo = await _usersRepository.GetUserInfoAsync(id);
+
+            if (userInfo == null)
+                return NotFound();
+            var userDto = new UserDto
+            {
+                Username = userInfo.Username,
+                Email = userInfo.Email,
+                UserBloodPanel = userInfo.UserBloodPanel != null
+                ? new BloodPanelDto
+                {
+                    Id = userInfo.UserBloodPanel.Id,
+                    Hemoglobin = userInfo.UserBloodPanel.Hemoglobin,
+                    Wbc = userInfo.UserBloodPanel.WBC,
+                    Platelets = userInfo.UserBloodPanel.Platelets
+                }
+                : null,
+                UserLipidPanel = userInfo.UserLipidPanel != null
+                ? new LipidPanelDto
+                {
+                    Id = userInfo.UserLipidPanel.Id,
+                    TotalCholesterol = userInfo.UserLipidPanel.TotalCholesterol,
+                    LDL = userInfo.UserLipidPanel.LDL,
+                    HDL = userInfo.UserLipidPanel.HDL,
+                    Triglycerides = userInfo.UserLipidPanel.Triglycerides
+                }
+                : null,
+                MetabolicPanel = userInfo.MetabolicPanel != null
+                ? new MetabolicPanelDto
+                {
+                    Id = userInfo.MetabolicPanel.Id,
+                    Glucose = userInfo.MetabolicPanel.GlucoseFasting,
+                    Calcium = userInfo.MetabolicPanel.Calcium,
+                    Sodium = userInfo.MetabolicPanel.Sodium
+                }
+                : null
+            };
+
+            return Ok(userDto);
+        }
+        catch (Exception ex)
+        {
+
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
+    }
 }
