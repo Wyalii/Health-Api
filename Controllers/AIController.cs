@@ -37,7 +37,15 @@ public class AIController : ControllerBase
             TotalCholesterol = userInfo.UserLipidPanel?.TotalCholesterol ?? 0,
             LDL = userInfo.UserLipidPanel?.LDL ?? 0,
             HDL = userInfo.UserLipidPanel?.HDL ?? 0,
-            Triglycerides = userInfo.UserLipidPanel?.Triglycerides ?? 0
+            Triglycerides = userInfo.UserLipidPanel?.Triglycerides ?? 0,
+            Albumin = userInfo.MetabolicPanel?.Albumin ?? 0,
+            ALT = userInfo.MetabolicPanel?.ALT ?? 0,
+            Calcium = userInfo.MetabolicPanel?.Calcium ?? 0,
+            Creatinine = userInfo.MetabolicPanel?.Creatinine ?? 0,
+            eGFR = userInfo.MetabolicPanel?.eGFR ?? 0,
+            Glucose = userInfo.MetabolicPanel?.GlucoseFasting ?? 0,
+            Potassium = userInfo.MetabolicPanel?.Potassium ?? 0,
+            Sodium = userInfo.MetabolicPanel?.Sodium ?? 0
         };
 
         var aiResult = await _googleAIService.AnalyzeHealthAsync(analysisRequest);
