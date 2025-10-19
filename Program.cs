@@ -55,6 +55,7 @@ builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<UsersRepository>();
 builder.Services.AddScoped<MailService>();
 builder.Services.AddScoped<PanelsRepository>();
+builder.Services.AddScoped<GoogleAIService>();
 
 builder.Services.AddHttpClient();
 builder.Services.AddControllers();

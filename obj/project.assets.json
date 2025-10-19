@@ -5626,19 +5626,19 @@
     ]
   },
   "packageFolders": {
-    "/home/wyalii/.nuget/packages/": {}
+    "/home/Raul/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/wyalii/Health/Bocchify-Api/Bocchify_Server.csproj",
+      "projectUniqueName": "/home/Raul/Documents/Healthapi/Bocchify_Server.csproj",
       "projectName": "Bocchify_Server",
-      "projectPath": "/home/wyalii/Health/Bocchify-Api/Bocchify_Server.csproj",
-      "packagesPath": "/home/wyalii/.nuget/packages/",
-      "outputPath": "/home/wyalii/Health/Bocchify-Api/obj/",
+      "projectPath": "/home/Raul/Documents/Healthapi/Bocchify_Server.csproj",
+      "packagesPath": "/home/Raul/.nuget/packages/",
+      "outputPath": "/home/Raul/Documents/Healthapi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/wyalii/.nuget/NuGet/NuGet.Config"
+        "/home/Raul/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -5662,7 +5662,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -5752,6 +5752,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[9.0.9, 9.0.9]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -5760,7 +5766,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.110/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
