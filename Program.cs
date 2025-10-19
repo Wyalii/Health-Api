@@ -88,7 +88,7 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-app.UseCors("AllowedOrigin");
+app.UseCors("Allowed_Origin");
 
 if (app.Environment.IsDevelopment())
 {
