@@ -59,6 +59,7 @@ public class PanelsRepository
             EvaluateStatus(uploadHealthFormRequest.Hemoglobin, 13.5, 16.5);
             EvaluateStatus(uploadHealthFormRequest.Hematocrit, 40, 50);
             EvaluateStatus(uploadHealthFormRequest.Platelets, 150, 350);
+            await _context.SaveChangesAsync();
         }
 
 
@@ -93,6 +94,7 @@ public class PanelsRepository
             if (uploadHealthFormRequest.ALT.HasValue && uploadHealthFormRequest.ALT >= 25)
                 overallStatus = "Suboptimal";
             EvaluateStatus(uploadHealthFormRequest.Albumin, 4.2, 5.0);
+            await _context.SaveChangesAsync();
         }
 
 
@@ -118,6 +120,7 @@ public class PanelsRepository
                 overallStatus = "Suboptimal";
             if (uploadHealthFormRequest.Triglycerides.HasValue && uploadHealthFormRequest.Triglycerides >= 90)
                 overallStatus = "Suboptimal";
+            await _context.SaveChangesAsync();
         }
         var userInfoPanel = await _context.UserInfoPanel.FirstOrDefaultAsync(u => u.UserId == userId);
         if (userInfoPanel == null)
