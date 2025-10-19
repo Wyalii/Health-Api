@@ -12,7 +12,9 @@ var key = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWT_Secret"
 
 string allowedOrigin = Environment.GetEnvironmentVariable("Allowed_Origin");
 string allowedOriginProd = Environment.GetEnvironmentVariable("Allowed_Origin_Prod");
-
+Console.WriteLine(allowedOrigin);
+Console.WriteLine(allowedOriginProd);
+Console.WriteLine("allowed origin urls above!!!");
 var connectionString = Environment.GetEnvironmentVariable("Database_Connection_String");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -23,7 +25,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowedOrigin", policy =>
+    options.AddPolicy("Allowed_Origin", policy =>
     {
         policy.WithOrigins(allowedOrigin, allowedOriginProd)
               .AllowAnyHeader()
