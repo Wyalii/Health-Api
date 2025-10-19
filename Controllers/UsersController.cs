@@ -114,7 +114,11 @@ public class UsersController : ControllerBase
 
                     Hemoglobin = userInfo.UserBloodPanel.Hemoglobin,
                     Wbc = userInfo.UserBloodPanel.WBC,
-                    Platelets = userInfo.UserBloodPanel.Platelets
+                    Platelets = userInfo.UserBloodPanel.Platelets,
+                    RBC = userInfo.UserBloodPanel.RBC,
+                    Hematocrit = userInfo.UserBloodPanel.Hematocrit,
+                    CreatedAt = userInfo.UserBloodPanel.CreatedAt
+
                 }
                 : null,
                 UserLipidPanel = userInfo.UserLipidPanel != null
@@ -124,7 +128,8 @@ public class UsersController : ControllerBase
                     TotalCholesterol = userInfo.UserLipidPanel.TotalCholesterol,
                     LDL = userInfo.UserLipidPanel.LDL,
                     HDL = userInfo.UserLipidPanel.HDL,
-                    Triglycerides = userInfo.UserLipidPanel.Triglycerides
+                    Triglycerides = userInfo.UserLipidPanel.Triglycerides,
+                    CreatedAt = userInfo.UserLipidPanel.CreatedAt
                 }
                 : null,
                 MetabolicPanel = userInfo.MetabolicPanel != null
@@ -133,7 +138,14 @@ public class UsersController : ControllerBase
 
                     Glucose = userInfo.MetabolicPanel.GlucoseFasting,
                     Calcium = userInfo.MetabolicPanel.Calcium,
-                    Sodium = userInfo.MetabolicPanel.Sodium
+                    Sodium = userInfo.MetabolicPanel.Sodium,
+                    Albumin = userInfo.MetabolicPanel.Albumin,
+                    ALT = userInfo.MetabolicPanel.ALT,
+                    Potassium = userInfo.MetabolicPanel.Potassium,
+                    eGFR = userInfo.MetabolicPanel.eGFR,
+                    Creatinine = userInfo.MetabolicPanel.Creatinine,
+                    CreatedAt = userInfo.MetabolicPanel.CreatedAt
+
                 }
                 : null
             };
