@@ -1,5 +1,4 @@
 
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -47,48 +46,48 @@ public class UsersController : ControllerBase
         }
 
     }
-    [HttpPost("DecodeToken")]
-    public IActionResult DecodeToken()
-    {
-        try
-        {
-            var authHeader = Request.Headers["Authorization"].FirstOrDefault();
-            if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
-            {
-                return Unauthorized("Missing or invalid Authorization header.");
-            }
-            var token = authHeader.Substring("Bearer ".Length).Trim();
-            var claims = _tokenService.GetClaimsFromToken(token);
-            if (claims == null)
-            {
-                return Unauthorized("Invalid or expired token.");
-            }
+    // [HttpPost("DecodeToken")]
+    // public IActionResult DecodeToken(object jwtRegisteredClaimNames)
+    // {
+    //     try
+    //     {
+    //         var authHeader = Request.Headers["Authorization"].FirstOrDefault();
+    //         if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+    //         {
+    //             return Unauthorized("Missing or invalid Authorization header.");
+    //         }
+    //         var token = authHeader.Substring("Bearer ".Length).Trim();
+    //         var claims = _tokenService.GetClaimsFromToken(token);
+    //         if (claims == null)
+    //         {
+    //             return Unauthorized("Invalid or expired token.");
+    //         }
 
-            var userId = claims.FindFirst(ClaimTypes.NameIdentifier)?.Value
-              ?? claims.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+    //         var userId = claims.FindFirst(ClaimTypes.NameIdentifier)?.Value
+    //           ?? claims.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
 
-            var email = claims.FindFirst(ClaimTypes.Email)?.Value
-                      ?? claims.FindFirst(JwtRegisteredClaimNames.Email)?.Value;
+    //         var email = claims.FindFirst(ClaimTypes.Email)?.Value
+    //                   ?? claims.FindFirst(JwtRegisteredClaimNames.Email)?.Value;
 
 
-            if (userId == null || email == null)
-            {
-                return Unauthorized("Required claims not found.");
-            }
+    //         if (userId == null || email == null)
+    //         {
+    //             return Unauthorized("Required claims not found.");
+    //         }
 
-            return Ok(new
-            {
-                Id = userId,
-                Email = email
-            });
-        }
-        catch (Exception ex)
-        {
+    //         return Ok(new
+    //         {
+    //             Id = userId,
+    //             Email = email
+    //         });
+    //     }
+    //     catch (Exception ex)
+    //     {
 
-            return StatusCode(500, $"Internal server error: {ex.Message}");
-        }
+    //         return StatusCode(500, $"Internal server error: {ex.Message}");
+    //     }
 
-    }
+    // }
     [HttpGet("GetUserInfo")]
     public async Task<IActionResult> GetUserInfo()
     {
