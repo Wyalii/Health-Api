@@ -541,3 +541,10 @@
 /home/wyalii/Health/Bocchify-Api/obj/Debug/net9.0/Bocchify.3CC96571.Up2Date
 /home/wyalii/Health/Bocchify-Api/obj/Debug/net9.0/Bocchify_Server.genruntimeconfig.cache
 /home/wyalii/Health/Bocchify-Api/obj/Debug/net9.0/ref/Bocchify_Server.dll
+/home/wyalii/Health/Bocchify-Api/bin/Debug/net9.0/UglyToad.PdfPig.Core.dll
+/home/wyalii/Health/Bocchify-Api/bin/Debug/net9.0/UglyToad.PdfPig.DocumentLayoutAnalysis.dll
+/home/wyalii/Health/Bocchify-Api/bin/Debug/net9.0/UglyToad.PdfPig.Fonts.dll
+/home/wyalii/Health/Bocchify-Api/bin/Debug/net9.0/UglyToad.PdfPig.Package.dll
+/home/wyalii/Health/Bocchify-Api/bin/Debug/net9.0/UglyToad.PdfPig.Tokenization.dll
+/home/wyalii/Health/Bocchify-Api/bin/Debug/net9.0/UglyToad.PdfPig.Tokens.dll
+/home/wyalii/Health/Bocchify-Api/bin/Debug/net9.0/UglyToad.PdfPig.dll

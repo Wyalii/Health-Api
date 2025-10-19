@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "l4hiDU1WjAk=",
+  "dgSpecHash": "EcYA3K3F2EE=",
   "success": true,
   "projectFilePath": "/home/wyalii/Health/Bocchify-Api/Bocchify_Server.csproj",
   "expectedPackageFiles": [
@@ -66,6 +66,7 @@
     "/home/wyalii/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/home/wyalii/.nuget/packages/npgsql/9.0.3/npgsql.9.0.3.nupkg.sha512",
     "/home/wyalii/.nuget/packages/npgsql.entityframeworkcore.postgresql/9.0.4/npgsql.entityframeworkcore.postgresql.9.0.4.nupkg.sha512",
+    "/home/wyalii/.nuget/packages/pdfpig/0.1.11/pdfpig.0.1.11.nupkg.sha512",
     "/home/wyalii/.nuget/packages/swashbuckle.aspnetcore/7.2.0/swashbuckle.aspnetcore.7.2.0.nupkg.sha512",
     "/home/wyalii/.nuget/packages/swashbuckle.aspnetcore.swagger/7.2.0/swashbuckle.aspnetcore.swagger.7.2.0.nupkg.sha512",
     "/home/wyalii/.nuget/packages/swashbuckle.aspnetcore.swaggergen/7.2.0/swashbuckle.aspnetcore.swaggergen.7.2.0.nupkg.sha512",

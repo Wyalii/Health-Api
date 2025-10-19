@@ -55,7 +55,6 @@ builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<UsersRepository>();
 builder.Services.AddScoped<MailService>();
 builder.Services.AddScoped<PanelsRepository>();
-
 builder.Services.AddHttpClient();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(c =>
