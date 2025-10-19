@@ -1,6 +1,6 @@
 public class LipidPanelDto
 {
-    public int Id { get; set; }
+
     public double? TotalCholesterol { get; set; }
     public double? LDL { get; set; }
     public double? HDL { get; set; }

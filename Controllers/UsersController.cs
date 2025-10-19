@@ -111,7 +111,7 @@ public class UsersController : ControllerBase
                 UserBloodPanel = userInfo.UserBloodPanel != null
                 ? new BloodPanelDto
                 {
-                    Id = userInfo.UserBloodPanel.Id,
+
                     Hemoglobin = userInfo.UserBloodPanel.Hemoglobin,
                     Wbc = userInfo.UserBloodPanel.WBC,
                     Platelets = userInfo.UserBloodPanel.Platelets
@@ -120,7 +120,7 @@ public class UsersController : ControllerBase
                 UserLipidPanel = userInfo.UserLipidPanel != null
                 ? new LipidPanelDto
                 {
-                    Id = userInfo.UserLipidPanel.Id,
+
                     TotalCholesterol = userInfo.UserLipidPanel.TotalCholesterol,
                     LDL = userInfo.UserLipidPanel.LDL,
                     HDL = userInfo.UserLipidPanel.HDL,
@@ -130,7 +130,7 @@ public class UsersController : ControllerBase
                 MetabolicPanel = userInfo.MetabolicPanel != null
                 ? new MetabolicPanelDto
                 {
-                    Id = userInfo.MetabolicPanel.Id,
+
                     Glucose = userInfo.MetabolicPanel.GlucoseFasting,
                     Calcium = userInfo.MetabolicPanel.Calcium,
                     Sodium = userInfo.MetabolicPanel.Sodium
