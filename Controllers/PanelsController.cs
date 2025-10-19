@@ -18,7 +18,14 @@ public class PanelsController : ControllerBase
     public async Task<IActionResult> CreateLabData(UploadHealthFormRequest uploadHealthFormRequest)
     {
         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        Console.WriteLine(userId + "claims test here!!!!");
+        if (userId == null)
+        {
+            return Unauthorized();
+        }
+        int id = int.Parse(userId);
+
+
+        uploadHealthFormRequest.UserId = id;
         if (uploadHealthFormRequest == null)
             return BadRequest(new { Success = false, Message = "Request body cannot be empty." });
 
