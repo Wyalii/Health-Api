@@ -25,9 +25,8 @@ public class GoogleAIService
         var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={_apiKey}";
 
         var promptBuilder = new StringBuilder();
-        promptBuilder.AppendLine("Analyze this patient's lab results and provide a clear summary and actionable advice.\n");
+  promptBuilder.AppendLine("Summarize this patient's lab results briefly, focusing only on provided values. Give key insights and short, clear recommendations. Keep it under 5 sentences and avoid unnecessary detail.\n");
 
-        // 🩸 Blood Panel
         promptBuilder.AppendLine("Blood Panel:");
         if (request.WBC != 0) promptBuilder.AppendLine($"- WBC: {request.WBC}");
         if (request.RBC != 0) promptBuilder.AppendLine($"- RBC: {request.RBC}");
@@ -43,7 +42,6 @@ public class GoogleAIService
 
         string promptText = promptBuilder.ToString();
 
-        // ✅ 2.5 structure with thinking support
         var payload = new
         {
             contents = new[]
